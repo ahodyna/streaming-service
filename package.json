@@ -1,0 +1,24 @@
+{
+  "name": "stream-service",
+  "version": "1.0.0",
+  "description": "Stream service",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "keywords": [
+    "react",
+    "express"
+  ],
+  "author": "hodyna",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "nodemon": "^2.0.12"
+  }
+}
