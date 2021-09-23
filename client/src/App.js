@@ -1,8 +1,20 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { useRoutes } from './routes';
 
-function App(){
+
+
+
+function App() {
+  const routes = useRoutes(false);
+
+
   return (
-    <div>Hello!</div>
+    <BrowserRouter>
+      {routes}
+    </BrowserRouter>
+
+
   )
 }
 
