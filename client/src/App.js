@@ -1,20 +1,24 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { AuthContext } from './context/AuthContext';
+import { useAuth } from './hooks/auth.hook';
 import { useRoutes } from './routes';
 
 
 
-
 function App() {
-  const routes = useRoutes(false);
+  const { token, login, logout, userId } = useAuth();
+  const isAuthenticated = !!token;
 
+  const routes = useRoutes(isAuthenticated);
 
   return (
-    <BrowserRouter>
-      {routes}
-    </BrowserRouter>
-
-
+    <AuthContext.Provider value={{
+      token, login, logout, userId, isAuthenticated}}>
+      <BrowserRouter>
+        {routes}
+      </BrowserRouter>
+    </AuthContext.Provider>
   )
 }
 

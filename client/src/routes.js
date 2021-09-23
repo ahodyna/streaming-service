@@ -26,7 +26,7 @@ export const useRoutes = isAuthenticated => {
                 <Route path='/favorite' exact>
                     <FavoriteFilmsPage/>
                 </Route>
-                <Redirect to='/user/:id'/> 
+                <Redirect to='/favorite'/> 
             </Switch>
         )
     }

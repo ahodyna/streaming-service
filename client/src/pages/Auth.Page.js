@@ -1,19 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
 import { useHttp } from '../hooks/http.hook';
 
 export const AuthPage = () => {
-    const { loading, error, request } = useHttp()
-
+    const auth = useContext(AuthContext)
+    const { loading, request, error, clearError } = useHttp()
     const [form, setForm] = useState({
         email: '', password: ''
     });
 
+    useEffect(() => {
+        console.log('error', error);
+        clearError()
+    }, [error, clearError])
+
     const registerHandler = async () => {
         try {
-            const data = await request('/api/auth/register', 'POST', {...form})
+            const data = await request('/api/auth/register', 'POST', { ...form })
             console.log('data', data)
         } catch (e) {
+        }
+    }
 
+    const loginHandler = async () => {
+        try {
+            const data = await request('/api/auth/login', 'POST', { ...form })
+            console.log('login data', data)
+           auth.login(data.token, data.userId)
+        } catch (e) {
         }
     }
 
@@ -39,7 +53,7 @@ export const AuthPage = () => {
                 onChange={changeHandler}
             />
             <div>
-                <button disabled={loading}>Login</button>
+                <button onClick={loginHandler} disabled={loading}>Login</button>
                 <button onClick={registerHandler} disabled={loading}>Register</button>
             </div>
 
