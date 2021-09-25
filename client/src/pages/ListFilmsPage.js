@@ -4,6 +4,7 @@ export const ListFilmsPage = () => {
     return (
         <div>
             <h2> ListFilmsPage</h2>
+            
         </div>
     )
 };
