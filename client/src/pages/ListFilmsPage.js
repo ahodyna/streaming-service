@@ -18,7 +18,7 @@ export const ListFilmsPage = () => {
         setItems(items)
         setIsFilmItemsLoading(false)
       } else {
-        alert("Ошибка HTTP: " + response.status);
+        alert("Error: " + response.status);
       }
     }
     return (

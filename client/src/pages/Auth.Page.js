@@ -10,24 +10,25 @@ export const AuthPage = () => {
     });
 
     useEffect(() => {
-        console.log('error', error);
         clearError()
     }, [error, clearError])
 
+
     const registerHandler = async () => {
         try {
-            const data = await request('/api/auth/register', 'POST', { ...form })
-            console.log('data', data)
+            await request('/api/auth/register', 'POST', { ...form })
+            loginHandler()
         } catch (e) {
+            alert(e)
         }
     }
 
     const loginHandler = async () => {
         try {
             const data = await request('/api/auth/login', 'POST', { ...form })
-            console.log('login data', data)
-           auth.login(data.token, data.userId)
+            auth.login(data.token, data.userId)
         } catch (e) {
+            alert(e)
         }
     }
 
@@ -55,6 +56,7 @@ export const AuthPage = () => {
             <div>
                 <button onClick={loginHandler} disabled={loading}>Login</button>
                 <button onClick={registerHandler} disabled={loading}>Register</button>
+                
             </div>
 
         </div>

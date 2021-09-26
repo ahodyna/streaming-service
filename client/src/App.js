@@ -1,10 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { AuthContext } from './context/AuthContext';
 import { useAuth } from './hooks/auth.hook';
-import ListFilmsPage from './pages/ListFilmsPage';
-import UserPage from './pages/UserPage';
 import { useRoutes } from './routes';
 
 
