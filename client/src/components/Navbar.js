@@ -1,8 +1,9 @@
-import React, {useContext} from 'react';
-import {NavLink, useHistory} from 'react-router-dom';
-import {AuthContext} from '../context/AuthContext';
+import React, { useContext } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
-export const Navbar = () =>{
+
+export const Navbar = () => {
     const history = useHistory();
     const auth = useContext(AuthContext);
 
@@ -11,11 +12,14 @@ export const Navbar = () =>{
         auth.logout();
         history.push('/')
     }
-    return(
+    return (
         <nav>
             <ul>
-                <li><a href='/' onClick={logoutHandler}>Log out</a></li>
-                </ul>
+
+                {auth.isAuthenticated ?
+                    <li><Link to='/' onClick={logoutHandler}>Log out</Link></li>
+                    : <li><Link to='/' >Log in</Link></li>}
+            </ul>
         </nav>
     )
 

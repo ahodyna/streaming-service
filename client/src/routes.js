@@ -39,7 +39,7 @@ export const useRoutes = isAuthenticated => {
                     <AuthPage />
                 </Route>
 
-                 <Redirect to='/' />  
+                 <Redirect to='/films' />  
         </Switch>
     )
 }
