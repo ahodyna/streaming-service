@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import FilmsList from '../components/FilmsList';
 import Loader from '../components/UI/loader/Loader';
 
-export const ListFilmsPage = () => {
+export const MainPage = () => {
     const [items, setItems] = useState([]);
     const [isFilmItemsLoading, setIsFilmItemsLoading] = useState(false);
   
@@ -33,4 +33,4 @@ export const ListFilmsPage = () => {
     )
 };
 
-export default ListFilmsPage;
+export default MainPage;

@@ -17,8 +17,8 @@ export const Navbar = () => {
             <ul>
 
                 {auth.isAuthenticated ?
-                    <li><Link to='/' onClick={logoutHandler}>Log out</Link></li>
-                    : <li><Link to='/' >Log in</Link></li>}
+                    <li><Link to='/login' onClick={logoutHandler}>Log out</Link></li>
+                    : <li><Link to='/login' >Log in</Link></li>}
             </ul>
         </nav>
     )
