@@ -13,7 +13,7 @@ export const FilmsPage = () => {
   
     async function fetchData() {
       setIsFilmItemsLoading(true)
-      let response = await fetch('/films/films');
+      let response = await fetch('/films');
       if (response.ok) {
         let items = await response.json();
         setItems(items)
