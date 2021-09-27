@@ -1,10 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const FilmItem = (props) => {
+    const auth = useContext(AuthContext);
     return (
         <div >
-            <Link to='/' >
+              {auth.isAuthenticated ?
+                   <div>
+                   <img src={props.item.image.medium} alt="movie-poster"/>
+                   <strong>{props.item.name}</strong>
+                   <div>
+                       {props.item.language}
+                   </div>
+               </div>
+               :  <Link to='/login' >
             <div>
                 <img src={props.item.image.medium} alt="movie-poster"/>
                 <strong>{props.item.name}</strong>
@@ -12,7 +22,7 @@ const FilmItem = (props) => {
                     {props.item.language}
                 </div>
             </div>
-            </Link>
+            </Link>}
         </div>
     )
 }

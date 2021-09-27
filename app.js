@@ -22,4 +22,4 @@ app.listen(PORT, () => {
 
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/main', require('./routes/film.routes'))
-
+app.use('/films', require('./routes/listFilms.routes'))
