@@ -7,16 +7,26 @@ const FilmItem = (props) => {
     const router = useHistory();
 
 
+
     return (
         <div >
             {auth.isAuthenticated ?
                 <div onClick={() => router.push(`/films/${props.item.id}`)}>
                     <div>
                         <img src={props.item.image.medium} alt="movie-poster" />
-                        <strong>{props.item.name}</strong>
                         <div>
-                            {props.item.language}
+                            <strong>{props.item.name}</strong>
                         </div>
+           
+                        <div>
+                            Language:  {props.item.language}
+                        </div>
+                            
+                        <div>
+                            Rating :{props.item.rating.average}
+                            
+                        </div>
+
                         <button>LIKE</button>
                     </div>
                 </div>
