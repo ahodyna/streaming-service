@@ -23,7 +23,7 @@ export const FilmsPage = () => {
 
   const sortedAndSearchedFilms = useMemo(() => {
     return sortedFilms.filter(item => item.name.toLowerCase().includes(searchQuery))
-  }, [searchQuery, sortFilms]);
+  }, [searchQuery, sortedFilms]);
 
   useEffect(() => {
     fetchData()
@@ -45,6 +45,7 @@ export const FilmsPage = () => {
     <div>
       <h2>Films page</h2>
       <UserMenu />
+
       <div>
         <input
           value={searchQuery}
