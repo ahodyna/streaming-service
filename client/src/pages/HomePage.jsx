@@ -13,9 +13,11 @@ export const HomePage = () => {
     }, [])
 
     const removeFavoriteFilm = (film) => {
+  
         const newFavoriteList = favorites.filter(
             (favorite) => favorite.id !== film.id
         );
+        localStorage.setItem('favorities', JSON.stringify(newFavoriteList));
         setFavorities(newFavoriteList)
     };
 

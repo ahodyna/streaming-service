@@ -49,12 +49,11 @@ export const FilmsPage = () => {
   }
 
   const addFavoritesFilm = (film) => {
-    const newFavoritedList = [...favorites, film];
+    const movieFavourite = JSON.parse(localStorage.getItem('favorities'));
+    const newFavoritedList = [...movieFavourite, film];
     setFavorites(newFavoritedList);
-    saveToLocalStorage(newFavoritedList)
-  }
-
-
+    saveToLocalStorage(newFavoritedList);
+  };
 
   return (
     <div>
@@ -79,7 +78,7 @@ export const FilmsPage = () => {
         />}
       {isFilmItemsLoading
         ? <Loader />
-        : <FilmsList items={sortedAndSearchedFilms} handleFovoritesClick={addFavoritesFilm} AddFavorites={AddFavorites}  />
+        : <FilmsList items={sortedAndSearchedFilms} handleFovoritesClick={addFavoritesFilm} AddFavorites={AddFavorites} />
       }
     </div>
   )
