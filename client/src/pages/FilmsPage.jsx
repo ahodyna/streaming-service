@@ -3,12 +3,15 @@ import UserMenu from '../components/UserMenu';
 import Loader from '../components/UI/loader/Loader';
 import FilmsList from '../components/FilmsList';
 import Select from '../components/UI/select/Select';
+import AddFavorites from '../components/AddFavorites';
+
 
 export const FilmsPage = () => {
   const [items, setItems] = useState([]);
   const [isFilmItemsLoading, setIsFilmItemsLoading] = useState(false);
   const [selectedSort, setSelectedSort] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [favorites, setFavorites] = useState([]);
 
   const sortedFilms = useMemo(() => {
     if (selectedSort) {
@@ -41,6 +44,18 @@ export const FilmsPage = () => {
     }
   };
 
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem('favorities', JSON.stringify(items));
+  }
+
+  const addFavoritesFilm = (film) => {
+    const newFavoritedList = [...favorites, film];
+    setFavorites(newFavoritedList);
+    saveToLocalStorage(newFavoritedList)
+  }
+
+
+
   return (
     <div>
       <h2>Films page</h2>
@@ -64,7 +79,7 @@ export const FilmsPage = () => {
         />}
       {isFilmItemsLoading
         ? <Loader />
-        : <FilmsList items={sortedAndSearchedFilms} />
+        : <FilmsList items={sortedAndSearchedFilms} handleFovoritesClick={addFavoritesFilm} AddFavorites={AddFavorites}  />
       }
     </div>
   )

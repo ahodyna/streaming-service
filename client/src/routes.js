@@ -3,7 +3,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthPage from './pages/Auth.Page';
 import HomePage from './pages/HomePage';
 import FilmsPage from './pages/FilmsPage';
-import FilmIdPage from './pages/FilmIdPage';
 import MainPage from './pages/MainPage';
 import SearchFriendPage from './pages/SearchFriendPage';
 import  FriendsPage from './pages/FriendsPage';
@@ -19,10 +18,6 @@ export const useRoutes = isAuthenticated => {
                 <Route path='/friends' exact>
                     <FriendsPage/>
                 </Route>  
-
-                <Route path='/films/:id' exact>
-                    <FilmIdPage />
-                </Route>
                 <Route path='/films' exact>
                     <FilmsPage />
                 </Route>
