@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import FilmsList from '../components/FilmsList';
 import Loader from '../components/UI/loader/Loader';
 import Pagination from '../components/Pagination';
+import Footer from '../components/Footer';
 
 
 export const MainPage = () => {
@@ -42,13 +43,15 @@ export const MainPage = () => {
         ? <Loader />
         : <FilmsList items={currentFilm} />
       }
-      
-         <Pagination
-          filmsPerPage={filmsPerPage}
-          items={items.length}
-          paginate={paginate}
-        />
-    
+
+      <Pagination
+        filmsPerPage={filmsPerPage}
+        items={items.length}
+        paginate={paginate}
+      />
+
+      <Footer />
+
     </div>
   )
 };

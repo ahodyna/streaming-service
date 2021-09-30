@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import UserMenu from '../components/UserMenu';
 import FilmItem from '../components/FilmItem';
 import RemoveFavorites from '../components/RemoveFavorites';
+import Footer from '../components/Footer';
 
 export const HomePage = () => {
 
@@ -36,7 +37,8 @@ export const HomePage = () => {
                     : <h2>Let`s find tour favorite films together</h2>
                 }
             </div>
-
+            
+            <Footer />
 
         </div>
     )

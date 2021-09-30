@@ -4,6 +4,7 @@ import Loader from '../components/UI/loader/Loader';
 import FilmsList from '../components/FilmsList';
 import Select from '../components/UI/select/Select';
 import AddFavorites from '../components/AddFavorites';
+import Footer from '../components/Footer';
 
 
 export const FilmsPage = () => {
@@ -60,15 +61,15 @@ export const FilmsPage = () => {
       <UserMenu />
       <h2 className='home-page-title'>Films page</h2>
 
-      <div className='input-wrapper'> 
+      <div className='input-wrapper'>
         <div>
           <input className='input'
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Type title" />
         </div>
-       <div className='custom-select'>
-       <Select
+        <div className='custom-select'>
+          <Select
             value={selectedSort}
             onChange={sortFilms}
             defaultValue="Sort by"
@@ -76,14 +77,17 @@ export const FilmsPage = () => {
               { value: 'name', name: 'name' },
             ]}
           />
-       </div>
-     
+        </div>
+
       </div>
 
       {isFilmItemsLoading
         ? <Loader />
         : <FilmsList items={sortedAndSearchedFilms} handleFovoritesClick={addFavoritesFilm} AddFavorites={AddFavorites} />
       }
+
+      <Footer />
+      
     </div>
   )
 };
