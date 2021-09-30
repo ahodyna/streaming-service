@@ -13,12 +13,12 @@ export const Navbar = () => {
         history.push('/')
     }
     return (
-        <nav>
+        <nav className='navbar'>
             <ul>
 
                 {auth.isAuthenticated ?
-                    <li><Link to='/login' onClick={logoutHandler}>Log out</Link></li>
-                    : <li><Link to='/login' >Log in</Link></li>}
+                    <li className='navbar-li'><Link className='navbar-link' to='/login' onClick={logoutHandler}>Log out</Link></li>
+                    : <li className='navbar-li'><Link className='navbar-link' to='/login' >Log in</Link></li>}
             </ul>
         </nav>
     )

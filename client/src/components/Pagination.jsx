@@ -9,18 +9,20 @@ const Pagination = ({ filmsPerPage, items, paginate }) => {
     }
     console.log('pageNumber', pageNumber)
     return (
-        <ul>
-            {
-                pageNumber.map(number => (
+        <div className='pagination-wrapper'>
+            <ul className='pagination-ul' >
+                {
+                    pageNumber.map(number => (
 
-                    <li key={number}
-                         onClick={()=> paginate(number)}
-                          >  {number}
-                        
-                    </li>
-                ))
-            }
-        </ul>
+                        <li className='pagination-item' key={number}
+                            onClick={() => paginate(number)}
+                        >  {number}
+
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
 
     )
 };

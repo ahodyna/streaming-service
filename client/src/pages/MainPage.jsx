@@ -8,7 +8,7 @@ export const MainPage = () => {
   const [items, setItems] = useState([]);
   const [isFilmItemsLoading, setIsFilmItemsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [filmsPerPage] = useState(10);
+  const [filmsPerPage] = useState(9);
 
   const lastFilmIndex = currentPage * filmsPerPage;
   const firstFilmIndex = lastFilmIndex - filmsPerPage;
@@ -30,12 +30,18 @@ export const MainPage = () => {
       alert("Error: " + response.status);
     }
   };
-  
+
   const currentFilm = items.slice(firstFilmIndex, lastFilmIndex);
 
   return (
     <div>
-      <h2> List of FilmsPage</h2>
+      <h2 className='main-title'> Happy to see you again!</h2>
+      <h3>Choose your favorite season</h3>
+
+      {isFilmItemsLoading
+        ? <Loader />
+        : <FilmsList items={currentFilm} />
+      }
       {isFilmItemsLoading
         ? <Loader />
         : <Pagination
@@ -44,11 +50,6 @@ export const MainPage = () => {
           paginate={paginate}
         />
       }
-      {isFilmItemsLoading
-        ? <Loader />
-        : <FilmsList items={currentFilm} />
-      }
-
     </div>
   )
 };

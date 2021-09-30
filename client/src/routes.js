@@ -4,20 +4,12 @@ import AuthPage from './pages/Auth.Page';
 import HomePage from './pages/HomePage';
 import FilmsPage from './pages/FilmsPage';
 import MainPage from './pages/MainPage';
-import SearchFriendPage from './pages/SearchFriendPage';
-import  FriendsPage from './pages/FriendsPage';
+
 
 export const useRoutes = isAuthenticated => {
     if (isAuthenticated) {
         return (
             <Switch>
-                <Route path='/search' exact>
-                    <SearchFriendPage />
-                </Route>
-
-                <Route path='/friends' exact>
-                    <FriendsPage/>
-                </Route>  
                 <Route path='/films' exact>
                     <FilmsPage />
                 </Route>

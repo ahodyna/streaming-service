@@ -61,7 +61,7 @@ export const FilmsPage = () => {
       <UserMenu />
 
       <div>
-        <input
+        <input className='input'
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
           placeholder="Type title" />

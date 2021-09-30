@@ -2,13 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
+
 const UserMenu = () => {
     return (
-        <div>
-            <li><Link to='/favorite'>Home</Link></li>
-            <li><Link to='/friends'>Friends</Link></li>
-            <li><Link to='/search'>Find Friends</Link></li>
-            <li><Link to='/films'>Films</Link></li>
+        <div className='topnav'>
+            <li className='user-menu-item'><Link to='/favorite' className='link-user-menu-item'>Home</Link></li>
+            <li className='user-menu-item'><Link to='/films' className='link-user-menu-item'>Films</Link></li>
         </div>
     )
 }

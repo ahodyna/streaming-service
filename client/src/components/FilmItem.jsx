@@ -8,34 +8,31 @@ const FilmItem = (props) => {
     return (
         <div >
             {auth.isAuthenticated ?
-                <div>
+                <div className='film-card'>
+
+                    <img src={props.item.image.medium} alt="movie-poster" />
                     <div>
-                        <img src={props.item.image.medium} alt="movie-poster" />
-                        <div>
-                            <strong>{props.item.name}</strong>
-                        </div>
+                        <p>{props.item.name}</p>
+                    </div>
 
-                        <div>
-                            Language:  {props.item.language}
-                        </div>
+                    <div>
+                        Language:  {props.item.language}
+                    </div>
 
-                        <div>
-                            Rating :{props.item.rating.average}
-
-                        </div>
-                        <div onClick={() =>props.handleFovoritesClick(props.item)}>
-                            <props.AddFavorites />
-                        </div>
+                    <div>
+                        Rating :{props.item.rating.average}
 
                     </div>
+                    <div onClick={() => props.handleFovoritesClick(props.item)}>
+                        <props.AddFavorites />
+                    </div>
+
+
                 </div>
-                : <Link to='/login' >
+                : <Link className='item-link' to='/login' >
                     <div>
                         <img src={props.item.image.medium} alt="movie-poster" />
-                        <strong>{props.item.name}</strong>
-                        <div>
-                            {props.item.language}
-                        </div>
+                        <p className='film-title'>{props.item.name}</p>
                     </div>
                 </Link>}
         </div>

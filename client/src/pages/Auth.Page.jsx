@@ -37,9 +37,10 @@ export const AuthPage = () => {
     }
 
     return (
-        <div>
-            <h2>Authorization</h2>
+        <div className='container-authorization-form'>
+            <h2 className='title-auth'>Authorization</h2>
             <input
+                className='input-auth'
                 placeholder='Enter email'
                 id='email'
                 type='text'
@@ -47,6 +48,7 @@ export const AuthPage = () => {
                 onChange={changeHandler}
             />
             <input
+                className='input-auth'
                 placeholder='Enter password'
                 id='password'
                 type='password'
@@ -54,9 +56,9 @@ export const AuthPage = () => {
                 onChange={changeHandler}
             />
             <div>
-                <button onClick={loginHandler} disabled={loading}>Login</button>
-                <button onClick={registerHandler} disabled={loading}>Register</button>
-                
+                <button className='btn-auth' onClick={loginHandler} disabled={loading}>Login</button>
+                <button  className='btn-auth' onClick={registerHandler} disabled={loading}>Register</button>
+
             </div>
 
         </div>

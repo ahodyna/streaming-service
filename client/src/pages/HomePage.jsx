@@ -13,7 +13,7 @@ export const HomePage = () => {
     }, [])
 
     const removeFavoriteFilm = (film) => {
-  
+
         const newFavoriteList = favorites.filter(
             (favorite) => favorite.id !== film.id
         );
@@ -24,12 +24,13 @@ export const HomePage = () => {
     return (
 
         <div>
-            <h2> Favorite Films  and Home page</h2>
             <UserMenu />
-            {favorites!==null?
-            favorites.map((item) =>
-                <FilmItem item={item} key={item.id} AddFavorites={RemoveFavorites} handleFovoritesClick={removeFavoriteFilm} />)
-            :<h2>Let`s find tour favorite films together</h2>
+            <h2> Favorite Films  and Home page</h2>
+
+            {favorites !== null ?
+                favorites.map((item) =>
+                    <FilmItem item={item} key={item.id} AddFavorites={RemoveFavorites} handleFovoritesClick={removeFavoriteFilm} />)
+                : <h2>Let`s find tour favorite films together</h2>
             }
 
         </div>

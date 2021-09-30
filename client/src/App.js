@@ -4,6 +4,8 @@ import  {Navbar}  from './components/Navbar';
 import { AuthContext } from './context/AuthContext';
 import { useAuth } from './hooks/auth.hook';
 import { useRoutes } from './routes';
+import './styles/App.css'
+
 
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
 
 
   return (
+    <div className='App'>
     <AuthContext.Provider value={{
       token, login, logout, userId, isAuthenticated
     }}>
@@ -23,6 +26,7 @@ function App() {
 
       </BrowserRouter>
     </AuthContext.Provider>
+    </div>
   )
 }
 
