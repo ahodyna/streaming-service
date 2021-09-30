@@ -57,25 +57,29 @@ export const FilmsPage = () => {
 
   return (
     <div>
-      <h2>Films page</h2>
       <UserMenu />
+      <h2 className='home-page-title'>Films page</h2>
 
-      <div>
-        <input className='input'
-          value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
-          placeholder="Type title" />
+      <div className='input-wrapper'> 
+        <div>
+          <input className='input'
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+            placeholder="Type title" />
+        </div>
+       <div className='custom-select'>
+       <Select
+            value={selectedSort}
+            onChange={sortFilms}
+            defaultValue="Sort by"
+            options={[
+              { value: 'name', name: 'name' },
+            ]}
+          />
+       </div>
+     
       </div>
-      {isFilmItemsLoading
-        ? <Loader />
-        : <Select
-          value={selectedSort}
-          onChange={sortFilms}
-          defaultValue="Sort by"
-          options={[
-            { value: 'name', name: 'name' },
-          ]}
-        />}
+
       {isFilmItemsLoading
         ? <Loader />
         : <FilmsList items={sortedAndSearchedFilms} handleFovoritesClick={addFavoritesFilm} AddFavorites={AddFavorites} />

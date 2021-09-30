@@ -42,14 +42,13 @@ export const MainPage = () => {
         ? <Loader />
         : <FilmsList items={currentFilm} />
       }
-      {isFilmItemsLoading
-        ? <Loader />
-        : <Pagination
+      
+         <Pagination
           filmsPerPage={filmsPerPage}
           items={items.length}
           paginate={paginate}
         />
-      }
+    
     </div>
   )
 };

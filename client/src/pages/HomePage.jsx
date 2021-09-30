@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import UserMenu from '../components/UserMenu';
 import FilmItem from '../components/FilmItem';
 import RemoveFavorites from '../components/RemoveFavorites';
@@ -25,13 +26,17 @@ export const HomePage = () => {
 
         <div>
             <UserMenu />
-            <h2> Favorite Films  and Home page</h2>
+            <h2 className='home-page-title'> Your Favorite Films</h2>
+            <h3>If you have empty list - you can add your favorite films</h3>
+            <Link to='/films' class='link-normalize'><div className='click-link'>Click here!</div></Link>
+            <div className='films-group'>
+                {favorites !== null ?
+                    favorites.map((item) =>
+                        <FilmItem item={item} key={item.id} AddFavorites={RemoveFavorites} handleFovoritesClick={removeFavoriteFilm} />)
+                    : <h2>Let`s find tour favorite films together</h2>
+                }
+            </div>
 
-            {favorites !== null ?
-                favorites.map((item) =>
-                    <FilmItem item={item} key={item.id} AddFavorites={RemoveFavorites} handleFovoritesClick={removeFavoriteFilm} />)
-                : <h2>Let`s find tour favorite films together</h2>
-            }
 
         </div>
     )

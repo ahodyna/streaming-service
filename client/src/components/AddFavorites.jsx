@@ -6,7 +6,7 @@ const AddFavorites = () => {
     
     return(
         <div>
-            <span className="btn">Add to Favorites</span>
+            <span className='btn btn-addFavorite'>Add to Favorites</span>
         </div>
     )
 }

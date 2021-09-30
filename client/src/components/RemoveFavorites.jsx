@@ -5,7 +5,7 @@ const RemoveFavorites = () => {
     
     return(
         <div>
-            <span>Remove from  Favorites</span>
+            <span className='btn btn-remove'>Remove from  Favorites</span>
         </div>
     )
 }

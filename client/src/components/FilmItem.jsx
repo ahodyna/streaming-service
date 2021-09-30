@@ -12,18 +12,18 @@ const FilmItem = (props) => {
 
                     <img src={props.item.image.medium} alt="movie-poster" />
                     <div>
-                        <p>{props.item.name}</p>
+                        <p className='film-title'>{props.item.name}</p>
                     </div>
 
                     <div>
-                        Language:  {props.item.language}
+                        <b>Language:</b>  {props.item.language}
                     </div>
 
                     <div>
-                        Rating :{props.item.rating.average}
+                        <b>Rating:</b>{props.item.rating.average}
 
                     </div>
-                    <div onClick={() => props.handleFovoritesClick(props.item)}>
+                    <div className='btn-wrapper' onClick={() => props.handleFovoritesClick(props.item)}>
                         <props.AddFavorites />
                     </div>
 

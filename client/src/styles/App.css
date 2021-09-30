@@ -5,10 +5,10 @@
 }
 
 body{
-    background-color: #c5d3ca;
+    background-color:white;
     margin: 0;
     font-family:  "Roboto", sans-serif;
-    color: #273d46;
+    color: black;
     font-size: 14px;
 }
 
@@ -20,25 +20,61 @@ body{
 
 .btn{
     padding: 5px 15px;
-    color: rgb(135, 148, 135);
+    color: rgb(27, 23, 23);;
     font-size: 14px;
     background: transparent;
-    border: 1px solid rgb(6, 111, 5);
+    border: 1px solid black;
     cursor: pointer;
 }
 
+.btn-wrapper{
+margin-top: 20px;
+}
+
+.btn-remove:hover{
+background-color: red;
+color: white;
+font-size: 17px;
+border: none;
+}
+
+.btn-addFavorite:hover{
+    background-color: rgb(37, 83, 18);
+    color: white;
+    font-size: 17px;
+    border: none;
+    }
+
 .topnav {
-    background-color: rgb(6, 111, 5);
+    background-color:  black;
     overflow: hidden;
     display: flex;
     flex-direction:row-reverse;
+    padding-bottom: 20px;
   }
 
-  .input{
-    width: 100%;
+.input-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.custom-select{
+    position: relative;
+}
+
+.select{
+    padding: 8px 16px;
+    border: 1px solid;
+    border-color: 1px rgba(0, 0, 0, 0.1) ;
+    cursor: pointer;
+}
+
+.input{
+    width: 40%;
     padding: 5px 15px;
     margin: 5px 0;
-    border: 1px solid teal;
+    border: 1px solid black;
 }
 
 .user-menu-item{
@@ -51,6 +87,15 @@ body{
 .link-user-menu-item{
     text-decoration: none;
     color: white;
+    margin:10px
+}
+
+.link-user-menu-item{
+    font-weight: 100;
+}
+
+.link-user-menu-item:hover{
+    color: rgba(247, 241, 67, 0.5);
 }
 
 .pagination-wrapper{
@@ -70,7 +115,7 @@ body{
     font-weight: 600;
 }
 .pagination-item:hover{
-    color: teal;
+    color: #878c29;
     font-size: medium;
     font-weight: 900;
 }
@@ -87,9 +132,7 @@ body{
     display: flex;
     flex-direction: column;
     padding: 5px 5px;
-    margin: 10px 0 19px 0;
-    width: 150px;
-    height: 250px;
+    margin: 10px 20px 19px 20px;
 }
 
 .item-link{
@@ -103,8 +146,8 @@ body{
 .film-title{
     text-decoration: none;
     font-size: medium;
-    font-weight: 600;
-   
+    font-weight: 900;
+    margin:10px;
 }
 
 .main-title{
@@ -114,8 +157,8 @@ body{
 }
 
 .navbar{
-    height: 4rem;
-    background-color: #273d46;
+    height: 5rem;
+    background-color:black;
     display: flex;
     justify-content: flex-end;
 }
@@ -130,19 +173,21 @@ body{
 }
 
 .navbar-li:hover{
-    box-shadow: 0 0 10px rgba(247, 241, 67, 0.5)
+    box-shadow: 5px 5px 10px rgba(189, 184, 33, 0.5);
+    background-color: #878c29;
 }
 
 .navbar-link{
-    color: #273d46;
+    color: black;
     text-decoration: none;
     font-weight: bolder;
     font-size: 20px;
+    font-weight: 300;
 }
 
 .container-authorization-form{
     width:550px;
-    background-color: #273d46;
+    background-color: black;
     margin: 100px auto 0 auto;
     text-align: center;
     padding-bottom: 40px;
@@ -167,13 +212,50 @@ body{
     padding: 20px 45px;
     margin: 5px 5px 20px 20px;
     font-size: 15px;
-    color: #273d46;
+    color: #454627;
     background-color: #fff;
     border: none;
 
 }
 .btn-auth:hover{
-    background-color: #5b6078;
+    background-color: #878c29;;
     color: white;
     box-shadow: 0 0 30px rgba(247, 241, 67, 0.5)
+}
+.link-normalize{
+    text-decoration: none;
+}
+
+.home-page-title{
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.click-link{
+    font-weight: bolder;
+    font-size: medium;
+    color: #5b6078;
+    padding-top: 20px;
+}
+
+.click-link:hover{
+    color:rgba(83, 80, 6, 0.5)
+}
+
+.loader{
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px dashed black;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg scale(1));
+    }
+    to{
+        transform: rotate(360deg) scale(1.4);
+    }
 }
