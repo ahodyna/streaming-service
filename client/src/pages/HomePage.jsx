@@ -24,8 +24,11 @@ export const HomePage = () => {
         <div>
             <h2> Favorite Films  and Home page</h2>
             <UserMenu />
-            {favorites.map((item) =>
-                <FilmItem item={item} key={item.id} AddFavorites={RemoveFavorites} handleFovoritesClick={removeFavoriteFilm} />)}
+            {favorites!==null?
+            favorites.map((item) =>
+                <FilmItem item={item} key={item.id} AddFavorites={RemoveFavorites} handleFovoritesClick={removeFavoriteFilm} />)
+            :<h2>Let`s find tour favorite films together</h2>
+            }
 
         </div>
     )
