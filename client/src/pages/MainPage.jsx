@@ -16,21 +16,26 @@ export const MainPage = () => {
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
-  useEffect(() => {
-    fetchData()
-  }, []);
 
-  async function fetchData() {
-    setIsFilmItemsLoading(true)
-    let response = await fetch("/main");
-    if (response.ok) {
-      let items = await response.json();
-      setItems(items)
-      setIsFilmItemsLoading(false)
-    } else {
-      alert("Error: " + response.status);
+  useEffect(() => {
+    let cleanupFunction = false;
+    const fetchData = async () => {
+      try {
+        setIsFilmItemsLoading(true)
+        let response = await fetch('/main');
+        if (response.ok) {
+          let items = await response.json();
+          if(!cleanupFunction)  setItems(items);
+         
+          setIsFilmItemsLoading(false)
+        }
+      } catch (e) {
+        alert("Error");
+      }
     }
-  };
+    fetchData()
+    return () => cleanupFunction = true;
+  }, []);
 
   const currentFilm = items.slice(firstFilmIndex, lastFilmIndex);
 
