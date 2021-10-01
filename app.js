@@ -12,12 +12,16 @@ app.use(cors());
 
 mongoose.connect(DB_CONNECT_URL);
 
-const staticPath = path.join(__dirname, 'static');
+app.use(express.static(__dirname))
+app.use(express.static(path.resolve(__dirname, 'build')));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(staticPath));
 
+app.get('*',(req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+
+})
 
 app.listen(PORT, () => {
     console.log(`App listening at http://localhost:${PORT}`);
