@@ -56,7 +56,7 @@ export const FilmsPage = () => {
 
   const addFavoritesFilm = (film) => {
     const movieFavourite = JSON.parse(localStorage.getItem('favorities'));
-    const newFavoritedList = [...movieFavourite, ...film];
+    const newFavoritedList = {...movieFavourite, film};
     setFavorites(newFavoritedList);
     saveToLocalStorage(newFavoritedList);
   };
