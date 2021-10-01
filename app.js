@@ -18,13 +18,12 @@ app.use('/auth', require('./routes/auth.routes'))
 app.use('/main', require('./routes/film.routes'))
 app.use('/films', require('./routes/listFilms.routes'))
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'))
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 
-    })
-}
+app.use(express.static('client/build'))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+
+})
 
 app.listen(PORT, () => {
     console.log(`server started on ${PORT}`);
