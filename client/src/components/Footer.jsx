@@ -5,7 +5,7 @@ const Footer = () => {
         <div className='footer'>
             <p>Test pet project</p>
             <p>2021</p>
-            <p>First experience with React )) </p>
+            <p>First experience with React :) </p>
          
         </div>
     )

@@ -23,10 +23,6 @@ const FilmItem = (props) => {
                         <b>Rating:</b>{props.item.rating.average}
 
                     </div>
-                    <div className='btn-wrapper' onClick={() => props.handleFovoritesClick(props.item)}>
-                        <props.AddFavorites />
-                    </div>
-
 
                 </div>
                 : <Link className='item-link' to='/login' >
