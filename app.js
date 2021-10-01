@@ -12,9 +12,12 @@ app.use(cors());
 
 mongoose.connect(DB_CONNECT_URL);
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/api/auth', require('./routes/auth.routes'))
+app.use('/main', require('./routes/film.routes'))
+app.use('/films', require('./routes/listFilms.routes'))
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
@@ -24,11 +27,6 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-
 app.listen(PORT, () => {
-    console.log(`App listening at http://localhost:${PORT}`);
+    console.log(`server started on ${PORT}`);
 });
-
-app.use('/api/auth', require('./routes/auth.routes'))
-app.use('/main', require('./routes/film.routes'))
-app.use('/films', require('./routes/listFilms.routes'))
