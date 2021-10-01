@@ -7,7 +7,7 @@ const { check, validationResult } = require('express-validator');
 const { ACCESS_TOKEN_SECRET } = require('../configs/config')
 
 router.post(
-    'https://streaming-service-test-project.herokuapp.com/register',
+    '/register',
     [check('email', 'Email isn`t correct').isEmail(),
     check('password', 'Password isn`t correct').isLength({ min: 6 })],
     async (req, res) => {
@@ -40,7 +40,7 @@ router.post(
     });
 
 router.post(
-    'https://streaming-service-test-project.herokuapp.com/login',
+    '/login',
     [check('email', 'Enter correct email').normalizeEmail().isEmail(),
     check('password', 'Enter correct password').exists()],
     async (req, res) => {
