@@ -11,6 +11,7 @@ export const HomePage = () => {
 
     useEffect(() => {
         const movieFavourite = JSON.parse(localStorage.getItem('favorities'))
+        console.log('movieFavourite', movieFavourite)
         setFavorities(movieFavourite)
     }, [])
 
@@ -31,7 +32,7 @@ export const HomePage = () => {
             <h3>If you have empty list - you can add your favorite films</h3>
             <Link to='/films' class='link-normalize'><div className='click-link'>Click here!</div></Link>
             <div className='films-group'>
-                {favorites !== null ?
+                {favorites.length !== 0 ?
                     favorites.map((item) =>
                         <FilmItem item={item} key={item.id} AddFavorites={RemoveFavorites} handleFovoritesClick={removeFavoriteFilm} />)
                     : <h2>Let`s find tour favorite films together</h2>
